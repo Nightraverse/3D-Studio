@@ -2,8 +2,10 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <algorithm>
 
 
+// -- Stage 1: Set-up -----------------------------
 struct faceVertex{
 	// -1 is an initial value to indicate that the vertex has not been set yet 
 	int v = -1;
@@ -11,12 +13,29 @@ struct faceVertex{
 	int vn = -1;
 };
 
-int main(){
-    // -- Stage 1: Set-up -----------------------------
+// Holds all the data for a 3D model, including vertices, face groups, and triangles
+struct Model{
 	std::vector<float> vertices;
-	std::vector<std::vector<faceVertex>> faceGroups; // Vector to hold groups of faces
-	
+	std::vector<std::vector<faceVertex>> faceGroups;
+	std::vector<faceVertex> triangles;
+};
 
+// Function declarations
+int loadObj(Model& model);
+std::vector<faceVertex> triangulate(const std::vector<std::vector<faceVertex>>& faceGroups);
+int test(const Model& model);
+void scaleToUnitCube(std::vector<float>& vertices);
+
+int main(){
+	Model model;
+	loadObj(model);
+	test(model);
+	return 0;
+}
+    
+
+
+int loadObj(Model& model){
 	// -- Stage 2: Parse File --------------------------
 	std::ifstream readFile("cube.obj");
 	if(!readFile){
@@ -41,9 +60,9 @@ int main(){
 		if(tag == "v"){
 			float x, y, z;
 			ss >> x >> y >> z;
-			vertices.push_back(x);
-			vertices.push_back(y);
-			vertices.push_back(z);
+			model.vertices.push_back(x);
+			model.vertices.push_back(y);
+			model.vertices.push_back(z);
 		}
 
 
@@ -85,23 +104,22 @@ int main(){
 			face.push_back(fv);         // ← into the inner vector
 		}
 
-		faceGroups.push_back(face);          // ← whole face goes into the outer vector
-	}
-
-	/* Not needed for now, kept as a stub for future implementation
-	else if(tag == "vn"){}
-	else if(tag == "vt"){	*/
+		model.faceGroups.push_back(face);          // ← whole face goes into the outer vector
+		}
 	
-}
+	}
 	
 	readFile.close(); 
+	scaleToUnitCube(model.vertices);
+	model.triangles = triangulate(model.faceGroups);
+	return 0;
+}
 
 
-	// -- Stage 3: Triangulate Faces ---------------------------
-
+// -- Stage 3: Triangulate Faces ---------------------------
+std::vector<faceVertex> triangulate(const std::vector<std::vector<faceVertex>>& faceGroups) {
 	// Flat list of triangles, each triangle is represented by 3 faceVertex structs
 	std::vector<faceVertex> triangles;
-
 	// Loop through each face group and triangulate it
 	for (const auto& face : faceGroups) {
 		// Fan method of triangulation 
@@ -111,11 +129,49 @@ int main(){
 			triangles.push_back(face[i]);
 		}
 	}
+	return triangles;
+}
 
-	// -- Stage 4: Output Parsed File --------------------------
-	std::cout << "Vertices: " << vertices.size() / 3 << "\n";
-	std::cout << "Faces: " << faceGroups.size() << "\n";
-	std::cout << "Triangles: " << triangles.size() / 3 << "\n";
-
+// -- Stage 4: Output Parsed File --------------------------
+int test(const Model& model){
+	std::cout << "Vertices: " << model.vertices.size() / 3 << "\n";
+	std::cout << "Faces: " << model.faceGroups.size() << "\n";
+	std::cout << "Triangles: " << model.triangles.size() / 3 << "\n";
 	return 0;
+}
+
+// -- Stage 5: Scale to Unit Cube --------------------------
+void scaleToUnitCube(std::vector<float>& vertices){
+	if(vertices.empty()) return;
+	float minX, minY, minZ, maxX, maxY, maxZ;
+
+	minX = maxX = vertices[0];
+	minY = maxY = vertices[1];
+	minZ = maxZ = vertices[2];
+
+	for (size_t i = 3; i < vertices.size(); i += 3) {
+		if (vertices[i] < minX) minX = vertices[i];
+		if (vertices[i] > maxX) maxX = vertices[i];
+		if (vertices[i + 1] < minY) minY = vertices[i + 1];
+		if (vertices[i + 1] > maxY) maxY = vertices[i + 1];
+		if (vertices[i + 2] < minZ) minZ = vertices[i + 2];
+		if (vertices[i + 2] > maxZ) maxZ = vertices[i + 2];
+	}
+
+	float extentX = maxX - minX;
+	float extentY = maxY - minY;
+	float extentZ = maxZ - minZ;
+
+	float maxScale = std::max({ extentX, extentY, extentZ });
+	if (maxScale == 0) return;
+
+	float cx = (minX + maxX) / 2.0f;
+	float cy = (minY + maxY) / 2.0f;
+	float cz = (minZ + maxZ) / 2.0f;
+
+	for (size_t i = 0; i < vertices.size(); i += 3) {
+		vertices[i] = (vertices[i] - cx) / maxScale;
+		vertices[i + 1] = (vertices[i + 1] - cy) / maxScale;
+		vertices[i + 2] = (vertices[i + 2] - cz) / maxScale;
+	}
 }
