@@ -13,3 +13,6 @@ As described by the document:
 ./build/glcheckpoint --bad-version
 unset DISPLAY
 ./build/glcheckpoint
+
+
+g++ geometryrender.o glfwcontext.o main.o openglwindow.o shaderprogram.o -o file -lglfw -lGL -ldl -lpthread
