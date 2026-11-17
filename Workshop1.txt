@@ -1,5 +1,15 @@
+In reference to:
+https://www.canvas.umu.se/courses/23330/files/folder/Workshops/Workshop%201?preview=5914590
+
+
 Command to link glad.o with glcheckpoint.o and compile:
 g++ glcheckpoint.o /home/ens26/ens26thz/Downloads/ws1/workshops/build/third_party/glad/src/glad.o -o file -lglfw -lGL -ldl -lpthread
 
 To run that file:
 ./file
+
+
+As described by the document:
+./build/glcheckpoint --bad-version
+unset DISPLAY
+./build/glcheckpoint
