@@ -1,0 +1,5 @@
+Command to link glad.o with glcheckpoint.o and compile:
+g++ glcheckpoint.o /home/ens26/ens26thz/Downloads/ws1/workshops/build/third_party/glad/src/glad.o -o file -lglfw -lGL -ldl -lpthread
+
+To run that file:
+./file
