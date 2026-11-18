@@ -23,3 +23,16 @@ Initializing GLFW... done.
 Creating window... 
 GLFW Error 0x00010007 (GLFW_VERSION_UNAVAILABLE): GLX: Failed to create context: BadMatch (invalid parameter attributes)
 FAILED: could not create a window.
+
+
+
+
+
+OS:            Linux 64-bit
+Compiler:      GCC 14.2.0
+Language:      C++17
+
+GLFW version: 3.2.1 (3.2.1 X11 GLX EGL clock_gettime /dev/js Xf86vm shared)
+Initializing GLFW... 
+GLFW Error 0x00010008 (GLFW_PLATFORM_ERROR): X11: The DISPLAY environment variable is missing
+FAILED: could not initialize GLFW.
