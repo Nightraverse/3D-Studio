@@ -15,4 +15,4 @@ unset DISPLAY
 ./build/glcheckpoint
 
 
-g++ geometryrender.o glfwcontext.o main.o openglwindow.o shaderprogram.o /home/ens26/ens26thz/Downloads/ws1/workshops/build/third_party/glad/src/glad. -o file -lglfw -lGL -ldl -lpthread
+g++ geometryrender.o glfwcontext.o main.o openglwindow.o shaderprogram.o /home/ens26/ens26thz/Downloads/ws1/workshops/build/third_party/glad/src/glad.o -o file -lglfw -lGL -ldl -lpthread
