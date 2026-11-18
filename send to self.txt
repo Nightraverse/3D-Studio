@@ -38,6 +38,6 @@ GLFW Error 0x00010008 (GLFW_PLATFORM_ERROR): X11: The DISPLAY environment variab
 FAILED: could not initialize GLFW.
 
 
+Usage: ./file <shader-directory>
+Example: ./file workshop1/shaders
 
-/usr/bin/ld: cannot find /home/ens26/ens26thz/Downloads/ws1/workshops/build/third_party/glad/src/glad.: No such file or directory
-collect2: error: ld returned 1 exit status
