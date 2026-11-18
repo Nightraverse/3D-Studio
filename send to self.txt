@@ -1,69 +1,14 @@
-g++ glcheckpoint.o glad.o -o file -lglfw -lGL -ldl -lpthread   
+OS:            Linux 64-bit
+Compiler:      GCC 14.2.0
+Language:      C++17
 
-
-
-ens26thz@tweekaz:~/Downloads/ws1/workshops/build/ws1/src$ g++ geometryrender.o glfwcontext.o main.o openglwindow.o shaderprogram.o -o file -lglfw -lGL -ldl -lpthread
-/usr/bin/ld: openglwindow.o: warning: relocation against `glad_glClearColor' in read-only section `.text'
-/usr/bin/ld: geometryrender.o: in function `GeometryRender::~GeometryRender()':
-/home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/geometryrender.cpp:24:(.text+0x149): undefined reference to `glad_glDeleteVertexArrays'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/geometryrender.cpp:25:(.text+0x162): undefined reference to `glad_glDeleteBuffers'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/geometryrender.cpp:26:(.text+0x17b): undefined reference to `glad_glDeleteBuffers'
-/usr/bin/ld: geometryrender.o: in function `GeometryRender::initialize()':
-/home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/geometryrender.cpp:35:(.text+0x236): undefined reference to `glad_glEnable'
-/usr/bin/ld: geometryrender.o: in function `GeometryRender::loadGeometry()':
-/home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/geometryrender.cpp:68:(.text+0x4cf): undefined reference to `glad_glCreateBuffers'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/geometryrender.cpp:71:(.text+0x4eb): undefined reference to `glad_glCreateBuffers'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/geometryrender.cpp:80:(.text+0x507): undefined reference to `glad_glNamedBufferStorage'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/geometryrender.cpp:82:(.text+0x554): undefined reference to `glad_glNamedBufferStorage'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/geometryrender.cpp:88:(.text+0x5a5): undefined reference to `glad_glCreateVertexArrays'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/geometryrender.cpp:99:(.text+0x5c8): undefined reference to `glad_glVertexArrayVertexBuffer'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/geometryrender.cpp:115:(.text+0x69e): undefined reference to `glad_glVertexArrayAttribBinding'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/geometryrender.cpp:120:(.text+0x6be): undefined reference to `glad_glVertexArrayAttribFormat'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/geometryrender.cpp:124:(.text+0x6ed): undefined reference to `glad_glEnableVertexArrayAttrib'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/geometryrender.cpp:129:(.text+0x707): undefined reference to `glad_glVertexArrayElementBuffer'
-/usr/bin/ld: geometryrender.o: in function `GeometryRender::display()':
-/home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/geometryrender.cpp:143:(.text+0x7e8): undefined reference to `glad_glClear'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/geometryrender.cpp:147:(.text+0x80e): undefined reference to `glad_glBindVertexArray'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/geometryrender.cpp:155:(.text+0x828): undefined reference to `glad_glPolygonMode'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/geometryrender.cpp:156:(.text+0x83b): undefined reference to `glad_glDrawElements'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/geometryrender.cpp:160:(.text+0x867): undefined reference to `glad_glBindVertexArray'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/geometryrender.cpp:161:(.text+0x875): undefined reference to `glad_glUseProgram'
-/usr/bin/ld: geometryrender.o: in function `ShaderProgram::use() const':
-/home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/shaderprogram.h:39:(.text._ZNK13ShaderProgram3useEv[_ZNK13ShaderProgram3useEv]+0xf): undefined reference to `glad_glUseProgram'
-/usr/bin/ld: openglwindow.o: in function `OpenGLWindow::OpenGLWindow(GlfwContext const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, int, bool)':
-/home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/openglwindow.cpp:58:(.text+0x27e): undefined reference to `gladLoadGLLoader'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/openglwindow.cpp:75:(.text+0x360): undefined reference to `glad_glViewport'
-/usr/bin/ld: openglwindow.o: in function `OpenGLWindow::setBackgroundColor(Vec4)':
-/home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/openglwindow.cpp:100:(.text+0x5b7): undefined reference to `glad_glClearColor'
-/usr/bin/ld: openglwindow.o: in function `OpenGLWindow::display()':
-/home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/openglwindow.cpp:115:(.text+0x6a5): undefined reference to `glad_glClear'
-/usr/bin/ld: shaderprogram.o: in function `ShaderProgram::~ShaderProgram()':
-/home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/shaderprogram.cpp:34:(.text+0x2e5): undefined reference to `glad_glDeleteProgram'
-/usr/bin/ld: shaderprogram.o: in function `ShaderProgram::compileShader(unsigned int)':
-/home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/shaderprogram.cpp:131:(.text+0xe1c): undefined reference to `glad_glCreateShader'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/shaderprogram.cpp:135:(.text+0xe46): undefined reference to `glad_glShaderSource'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/shaderprogram.cpp:137:(.text+0xe66): undefined reference to `glad_glCompileShader'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/shaderprogram.cpp:141:(.text+0xe7e): undefined reference to `glad_glGetShaderiv'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/shaderprogram.cpp:145:(.text+0xeb0): undefined reference to `glad_glGetShaderiv'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/shaderprogram.cpp:149:(.text+0xf13): undefined reference to `glad_glGetShaderInfoLog'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/shaderprogram.cpp:152:(.text+0xf4c): undefined reference to `glad_glDeleteShader'
-/usr/bin/ld: shaderprogram.o: in function `ShaderProgram::compileShaders()':
-/home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/shaderprogram.cpp:210:(.text+0x1578): undefined reference to `glad_glCreateProgram'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/shaderprogram.cpp:215:(.text+0x1608): undefined reference to `glad_glDeleteShader'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/shaderprogram.cpp:216:(.text+0x1616): undefined reference to `glad_glDeleteShader'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/shaderprogram.cpp:220:(.text+0x166b): undefined reference to `glad_glAttachShader'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/shaderprogram.cpp:221:(.text+0x1685): undefined reference to `glad_glAttachShader'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/shaderprogram.cpp:222:(.text+0x169f): undefined reference to `glad_glLinkProgram'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/shaderprogram.cpp:225:(.text+0x16b4): undefined reference to `glad_glDetachShader'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/shaderprogram.cpp:226:(.text+0x16ce): undefined reference to `glad_glDetachShader'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/shaderprogram.cpp:227:(.text+0x16e8): undefined reference to `glad_glDeleteShader'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/shaderprogram.cpp:228:(.text+0x16f6): undefined reference to `glad_glDeleteShader'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/shaderprogram.cpp:232:(.text+0x170e): undefined reference to `glad_glGetProgramiv'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/shaderprogram.cpp:235:(.text+0x1747): undefined reference to `glad_glGetProgramiv'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/shaderprogram.cpp:237:(.text+0x17b1): undefined reference to `glad_glGetProgramInfoLog'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/shaderprogram.cpp:238:(.text+0x17f1): undefined reference to `glad_glDeleteProgram'
-/usr/bin/ld: /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/shaderprogram.cpp:202:(.text+0x1af2): undefined reference to `glad_glDeleteShader'
-/usr/bin/ld: shaderprogram.o: in function `ShaderProgram::attributeLocation(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const':
-/home/ens26/ens26thz/Downloads/ws1/workshops/ws1/src/shaderprogram.cpp:262:(.text+0x1bf6): undefined reference to `glad_glGetAttribLocation'
-/usr/bin/ld: warning: creating DT_TEXTREL in a PIE
-collect2: error: ld returned 1 exit status
+GLFW version: 3.2.1 (3.2.1 X11 GLX EGL clock_gettime /dev/js Xf86vm shared)
+Initializing GLFW... done.
+Creating window... done.
+Setting up glad... done.
+OpenGL version:  4.5.0 NVIDIA 550.163.01
+OpenGL renderer: NVIDIA GeForce GT 1030/PCIe/SSE2
+OpenGL vendor:   NVIDIA Corporation
+Closing GLFW window... done.
+Terminating GLFW... done.
+All checks passed.
