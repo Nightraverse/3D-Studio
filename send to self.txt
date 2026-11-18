@@ -75,3 +75,7 @@ main()
     gl_Position =  vec4(vPosition, 0.0, 1.0);
 }
 
+
+
+m_window = glfwCreateWindow(width, height, m_title.c_str(), nullptr, nullptr);
+
