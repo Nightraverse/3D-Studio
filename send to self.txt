@@ -1,3 +1,11 @@
+
+void ShaderProgram: : setUniform (const std::string& name, const Mat4x4 m, GLboolean transpose) const {
+    glProgramUniformMatrix4fv (program(), uniformLocation (name), 1, transpose, m);
+}
+
+
+
+
 OS:            Linux 64-bit
 Compiler:      GCC 14.2.0
 Language:      C++17
