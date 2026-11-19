@@ -57,7 +57,7 @@ void GeometryRender::loadGeometry()
     // Vertex numbers (Indices into vertices). Will be used to
     // describe how to connect the points when drawn. Stored in system
     // RAM.
-    m_indices = { 0, 1, 2 };
+    m_indices = { 0, 1, 1, 2, 2, 0};
 
     // Create OpenGL buffer objects. Each object is initialized into
     // an empty, valid state with no GPU memory connected.
@@ -136,6 +136,7 @@ void GeometryRender::display()
         throw std::logic_error("GeometryRender::initialize() must "
 		"be called before display()");
 
+	
     // Make the correct context current.
     makeCurrent();
 
@@ -152,9 +153,12 @@ void GeometryRender::display()
     // from the element buffer of the currently bound VAO, starting at
     // byte offset 0.
     const size_t byteOffset = 0 * sizeof(unsigned int);
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-    glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(m_indices.size()),
-	GL_UNSIGNED_INT, BUFFER_OFFSET(byteOffset));
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    glDrawElements(GL_POINTS, static_cast<GLsizei>(m_indices.size()), GL_UNSIGNED_INT, BUFFER_OFFSET(byteOffset));
+	glDrawElements(GL_LINES, static_cast<GLsizei>(m_indices.size()), GL_UNSIGNED_INT, BUFFER_OFFSET(byteOffset));
+	glDrawElements(GL_LINE_STRIP, static_cast<GLsizei>(m_indices.size()), GL_UNSIGNED_INT, BUFFER_OFFSET(byteOffset));
+    /*glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(m_indices.size()),
+	GL_UNSIGNED_INT, BUFFER_OFFSET(byteOffset));*/
 
     // Unbind the VAO and program to make failures loud.
     glBindVertexArray(0);
