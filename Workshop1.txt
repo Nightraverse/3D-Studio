@@ -19,3 +19,7 @@ g++ geometryrender.o glfwcontext.o main.o openglwindow.o shaderprogram.o /home/e
 
 
 ./file /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/shaders
+
+
+cd Downloads/ws1/workshops
+make ws_run
