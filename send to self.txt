@@ -79,3 +79,63 @@ main()
 
 m_window = glfwCreateWindow(width, height, m_title.c_str(), nullptr, nullptr);
 
+
+
+
+└── ws1
+    ├── readme.txt
+    └── workshops
+        ├── tools
+        │   └── glcheckpoint
+        │       └── glcheckpoint.cpp
+        ├── third_party
+        │   └── glad
+        │       ├── src
+        │       │   └── glad.c
+        │       └── include
+        │           ├── KHR
+        │           │   └── khrplatform.h
+        │           └── glad
+        │               └── glad.h
+        ├── build
+        │   ├── ws1main
+        │   ├── glcheckpoint
+        │   ├── tools
+        │   │   └── glcheckpoint
+        │   │       ├── glcheckpoint.d
+        │   │       └── glcheckpoint.o
+        │   ├── third_party
+        │   │   └── glad
+        │   │       └── src
+        │   │           ├── glad.d
+        │   │           └── glad.o
+        │   └── ws1
+        │       └── src
+        │           ├── shaderprogram.d
+        │           ├── shaderprogram.o
+        │           ├── glfwcontext.d
+        │           ├── glfwcontext.o
+        │           ├── main.d
+        │           ├── main.o
+        │           ├── openglwindow.d
+        │           ├── openglwindow.o
+        │           ├── geometryrender.d
+        │           ├── geometryrender.o
+        │           └── file
+        ├── ws1
+        │   ├── shaders
+        │   │   ├── vshader.glsl
+        │   │   └── fshader.glsl
+        │   └── src
+        │       ├── glfwcontext.cpp
+        │       ├── main.cpp
+        │       ├── glfwcontext.h
+        │       ├── 3dstudio.h
+        │       ├── openglwindow.h
+        │       ├── shaderprogram.h
+        │       ├── geometryrender.cpp
+        │       ├── geometryrender.h
+        │       ├── shaderprogram.cpp
+        │       └── openglwindow.cpp
+        ├── Makefile
+        └── .gitignore
