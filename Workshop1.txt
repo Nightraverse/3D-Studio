@@ -16,10 +16,10 @@ unset DISPLAY
 
 
 g++ geometryrender.o glfwcontext.o main.o openglwindow.o shaderprogram.o /home/ens26/ens26thz/Downloads/ws1/workshops/build/third_party/glad/src/glad.o -o file -lglfw -lGL -ldl -lpthread
-
+cd Downloads/ws1/workshops
+make ws_run
 
 ./file /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/shaders
 
-
-cd Downloads/ws1/workshops
-make ws_run
+cd ~/Downloads/ws1/workshops
+make ws1 && ./build/ws1main ws1/shaders 
