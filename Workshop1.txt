@@ -21,5 +21,7 @@ make ws_run
 
 ./file /home/ens26/ens26thz/Downloads/ws1/workshops/ws1/shaders
 
+
+TO RUN - All you need is this:
 cd ~/Downloads/ws1/workshops
 make ws1 && ./build/ws1main ws1/shaders 
